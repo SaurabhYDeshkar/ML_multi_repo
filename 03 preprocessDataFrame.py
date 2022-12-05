@@ -4,3 +4,7 @@ dum_vardf= pd.get_dummies(var_df, drop_first=True)
 ## Dropping unnecessary Columns from the X Dataset
 X = dum_vardf.drop('output',axis=1) ##Dropping Column for Prediction Value
 y = dum_vardf['output'] ##Making the Predictions column as a Column Matrix
+
+##If X is needed to be reshaped from a Row Vector to Column Vector
+X = X.values
+X = X.reshape(-1,1)
