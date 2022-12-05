@@ -10,3 +10,5 @@ from sklearn.ensemble import GradientBoostingClassifier, GradientBoostingRegress
 from xgboost import XGBClassifier, XGBRegressor
 ###STACKING####
 from sklearn.ensemble import StackingClassifier, StackingRegressor
+####ISOLATION FOREST####
+from sklearn.ensemble import IsolationForest
