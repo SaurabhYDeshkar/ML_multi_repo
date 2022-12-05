@@ -1,7 +1,8 @@
 # ML_multi_repo
 Packages, Imports, et all for ML
 
-Order of Packages is as follows::
+
+Flow of an ML Program is as follows::
 1. Imports
 2. Pre-processing
 3. DataFrames
