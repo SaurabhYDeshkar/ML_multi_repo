@@ -23,6 +23,9 @@ svm = SVC(probability=True, kernel=..., C=np.linspace(0.001,0.9, 18), gamma={‘
 ##Decision Tree
 dtree = DecisionTreeClassifier(random_state=108, max_depth=[None,10,5,3], min_samples_split=[2, 10, 50, 100],
           min_samples_leaf=[1, 10, 50, 100])
+##Random Forest
+ranfr= RandomForestClassifier(max_features=[2,3,4,5,6], random_state=108, max_depth=[None,10,5,3], min_samples_split=[2, 10, 50, 100],
+          min_samples_leaf=[1, 10, 50, 100])
 
 ##ENSEMBLING-- VOTING
 models = [('Name1', model1),('Name2', model2),('Name3', model3)]
