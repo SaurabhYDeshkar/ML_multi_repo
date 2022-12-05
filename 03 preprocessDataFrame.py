@@ -8,3 +8,7 @@ y = dum_vardf['output'] ##Making the Predictions column as a Column Matrix
 ##If X is needed to be reshaped from a Row Vector to Column Vector
 X = X.values
 X = X.reshape(-1,1)
+##Using Train-Test Split
+X_train, X_test, y_train, y_test = train_test_split(X, y, random_state= 108, 
+                                                    test_size= 0.27, 
+                                                    shuffle= True, stratify= y)
