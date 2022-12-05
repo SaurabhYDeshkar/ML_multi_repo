@@ -28,13 +28,16 @@ ranfr= RandomForestClassifier(max_features=[2,3,4,5,6], random_state=108, max_de
           min_samples_leaf=[1, 10, 50, 100])
 
 ##ENSEMBLING-- VOTING
-models = [('Name1', model1),('Name2', model2),('Name3', model3)]
+models = [('Name1', model1), ('Name2', model2), ('Name3', model3), ('Name4',model4)]
 voting = VotingClassifier(estimator=models, voting={'hard','soft'}, weights=>array<)
 ##Hard voting is not preferred, Soft voting gives better results
 
 ##ENSEMBLING-- BAGGING
 bagging = BaggingClassifier(base_estimator=model_defined, random_state=108, n_estimators=[10, 50, 100])
 
-##ENSEMBLING-- XG Boosting. Better than simple Boosting
+##ENSEMBLING-- XG BOOSTING. Better than vanilla Boosting
 gbm = xgb.XGBClassifier(random_state=2022, learning_rate=np.linspace(0.001, 1, 10), 
                        max_depth=[2,3,4,5,6], n_estimators=[50,100,150])
+
+##ENSEMBLING--STACKING
+stack = StackingClassifier(estimators=models, final_estimator=model4, passthrough=True)
