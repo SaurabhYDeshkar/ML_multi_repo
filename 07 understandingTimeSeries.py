@@ -178,3 +178,50 @@ forecaster.fit(y_train)
 print(forecaster.summary())
 
 y_pred = forecaster.predict(fh=[1,2,3])
+##########################################################
+##########################################################
+#ARIMA Library
+from pmdarima.arima import auto_arima
+model = auto_arima(y_train, trace=True,
+                   error_action='ignore', 
+                   suppress_warnings=True)
+
+### SARMIA
+model = auto_arima(y_train, trace=True, error_action='ignore', 
+                   suppress_warnings=True,seasonal=True,m=12)
+
+forecast = model.predict(n_periods=len(y_test))
+forecast = pd.DataFrame(forecast,index = y_test.index,
+                        columns=['Prediction'])
+
+#plot the predictions for validation set
+plt.plot(y_train, label='Train',color="blue")
+plt.plot(y_test, label='Valid',color="pink")
+plt.plot(forecast, label='Prediction',color="purple")
+plt.show()
+
+
+# plot results
+plt.plot(y_test)
+plt.plot(forecast, color='red')
+plt.show()
+
+rms = sqrt(mean_squared_error(y_test, forecast))
+print('Test RMSE: %.3f' % rms)
+
+################# Next 5 Predictions ##############
+#### Building model on the whole data
+model = auto_arima(y, trace=True, error_action='ignore', 
+                   suppress_warnings=True)
+
+
+import numpy as np
+forecast = model.predict(n_periods=5)
+forecast = pd.DataFrame(forecast,index = np.arange(y.shape[0]+1,y.shape[0]+7),
+                        columns=['Prediction'])
+
+#plot the predictions for validation set
+plt.plot(y, label='Train',color="blue")
+
+plt.plot(forecast, label='Prediction',color="purple")
+plt.show()
