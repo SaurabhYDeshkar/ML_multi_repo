@@ -46,7 +46,18 @@ from sklearn.linear_model import SGDClassifier
 from sklearn.discriminant_analysis import LinearDiscriminantAnalysis, QuadraticDiscriminantAnalysis
 ## Support Vector has high accuracy and high speed of execution on occasion
 from sklearn.svm import SVC
-## Both Tree Based Algorithms are prone to OverFitting, not perfect, but also feature high accuracy
+## Tree Based Algorithms are prone to OverFitting, not perfect, but also feature high accuracy
 from sklearn.tree import DecisionTreeClassifier
 
 ### Imports for Regressors
+
+## KNN:: requires n_neighbors, may have low accuracy at times
+from sklearn.neighbors import KNeighborsRegressor
+## LinearRegression is fast but requires scaling and can be a bit inaccurate
+from sklearn.linear_model import LinearRegression
+## Further Types of Linear Regression
+from sklearn.linear_model import Ridge, Lasso, ElasticNet
+## SGDR uses Learning Rate and a random starting point 'alpha'
+from sklearn.linear_model import SGDRegressor
+## Tree Based Algorithms are prone to OverFitting, not perfect, but also feature high accuracy
+from sklearn.tree import DecisionTreeRegressor
